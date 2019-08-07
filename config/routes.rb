@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   delete '/logout',  to: 'sessions#destroy'
   post 'auth/login', to: 'authentication#authenticate'
+  post '/trips', to: 'trips#create'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

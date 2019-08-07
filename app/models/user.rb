@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :buses
+  has_many :trips
 
   before_save :downcase_email
 

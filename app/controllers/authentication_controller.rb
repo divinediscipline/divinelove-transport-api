@@ -7,7 +7,7 @@ class AuthenticationController < ApplicationController
       AuthenticateUser.new(auth_params[:email], auth_params[:password]).call
     # kindly refactor and add more keys to the response object when needed
     response = { 
-      status: Message.account_created,
+      status: Message.success,
       data: {
         token: auth_token
       } 

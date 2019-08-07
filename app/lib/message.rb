@@ -19,7 +19,7 @@ class Message
     'Unauthorized request'
   end
 
-  def self.account_created
+  def self.success
     'success'
   end
 

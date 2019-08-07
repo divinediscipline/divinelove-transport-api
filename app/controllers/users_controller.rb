@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     user = User.create!(user_params)
     auth_token = AuthenticateUser.new(user.email, user.password).call
     response = { 
-      status: Message.account_created,
+      status: Message.success,
       data: {
         user_id: user.id,
         is_admin: user.is_admin,
