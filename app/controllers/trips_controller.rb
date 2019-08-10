@@ -1,11 +1,23 @@
 class TripsController < ApplicationController
-  before_action :admin_user
+  before_action :admin_user, only: [:create, :destroy]
 
   def create 
     @trip = current_user.trips.create!(trip_params)
     response = { 
       status: Message.success,
       data: @trip
+    }
+    json_response(response, 200)
+  end
+
+  def index
+    trips = Trip.all
+    # converts activerecord object to array of hashes
+    trips_json = trips.as_json
+    trips_array = trips_json.map { |trip| trip.except("created_at", "updated_at", "user_id" )}
+    response = { 
+      status: Message.success,
+      data: trips_array
     }
     json_response(response, 200)
   end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   delete '/logout',  to: 'sessions#destroy'
   post 'auth/login', to: 'authentication#authenticate'
+  get '/trips', to: 'trips#index'
   post '/trips', to: 'trips#create'
   delete '/trips/:trip_id', to: 'trips#destroy'
   resources :users
