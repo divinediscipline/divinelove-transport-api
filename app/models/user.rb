@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+  has_many :bookings, dependent: :destroy
   has_many :buses
-  has_many :trips
+  has_many :trips, dependent: :destroy
 
   before_save :downcase_email
 
