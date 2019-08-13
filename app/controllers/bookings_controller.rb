@@ -67,6 +67,23 @@ class BookingsController < ApplicationController
     json_response(response, 200)
   end
 
+  def destroy
+    booking = current_user.bookings.find_by(id: params[:booking_id])
+    if booking
+      booking.destroy
+      response = { 
+        status: Message.success,
+        message: 'Booking deleted successfully'
+      }
+      json_response(response, 200)
+    else
+      response = { 
+        status: "error",
+        message: 'Booking not found'
+      }
+      json_response(response, 404)
+    end
+  end
 
   private
 

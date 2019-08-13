@@ -34,7 +34,7 @@ class TripsController < ApplicationController
     @trip.save
     response = { 
       status: Message.success,
-      data: @trip
+      message: 'Trip cancelled successfully'
     }
     json_response(response, 200)
   end
