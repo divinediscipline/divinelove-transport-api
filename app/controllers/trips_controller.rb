@@ -12,6 +12,7 @@ class TripsController < ApplicationController
 
   def index
     trips = Trip.all
+    
     # converts activerecord object to array of hashes
     trips_json = trips.as_json
     trips_array = trips_json.map { |trip| trip.except("created_at", "updated_at", "user_id" )}
@@ -21,8 +22,6 @@ class TripsController < ApplicationController
     }
     json_response(response, 200)
   end
-
-  # bus_id: user.buses[0].id, origin: "Lagos", destination: "Benin", trip_date: "2019-08-06 18:15:47", fare: "10000"
 
   # the trip is actually cancelled not destroyed
   def destroy

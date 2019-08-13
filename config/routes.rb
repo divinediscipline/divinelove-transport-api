@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/trips', to: 'trips#index'
   post '/trips', to: 'trips#create'
   delete '/trips/:trip_id', to: 'trips#destroy'
+  get '/bookings', to: 'bookings#index'
   post '/bookings', to: 'bookings#create'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
